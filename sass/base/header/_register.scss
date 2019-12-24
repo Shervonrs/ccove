@@ -1,0 +1,42 @@
+.navigation-item:nth-child(5) .nav-submenu-wrap.active{
+  @extend %navcontent;
+  right: 0;
+  & .nav-submenu-container .submenu-list {
+    @include flexbox($dir: column)
+    & .submenu-item {
+      margin: 5% 0;
+      padding: 1rem;
+      border: none;
+      border-bottom: 1px solid black;
+      box-shadow: none;
+      &::placeholder {
+        color: #222;
+        font-family: 'work-sans', serif;
+      }
+    }
+  }
+}
+
+.interestIn {
+  @include flexbox ($dir: row, $just: space-between);
+  & .submenu-item {
+    width: 100%
+  }
+  & select {
+    border: none;
+    background: $white;
+  }
+}
+
+.submit {
+  width: 25%;
+  padding: 0.5rem;
+  margin: 5% 0%;
+  // background: $white;
+  border: none;
+  text-align: left;
+}
+
+.navigation-item:nth-child(5) .nav-layer.active {
+  @extend %nav-layer;
+}

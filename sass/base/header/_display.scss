@@ -1,0 +1,85 @@
+%navcontent {
+  display: block;
+  @include flexbox($dir: column, $just: center, $align-items: center);
+  position: fixed;
+  z-index: 1000;
+  background: #eee;
+  top: 0;
+  min-height: 100vh;
+  width: 100%;
+  & .nav-submenu-container {
+    width: 90%;
+    @media(min-width: 1200px) {
+      padding-top: 10%;
+    }
+    & .menu-close-btn {
+      position: absolute;
+      right: 1%;
+      top: 4%;
+      width: 7vw;
+      height: 7vh;
+      opacity: 0.3;
+      cursor: pointer;
+      &:hover {
+        opacity: 1;
+      }
+      &:before, &:after {
+        position: absolute;
+        left: 3vw;
+        content: ' ';
+        height: 2vh;
+        width: 2px;
+        background-color: #707070;
+      }
+      &:before {
+        transform: rotate(45deg);
+      }
+      &:after {
+        transform: rotate(-45deg);
+      }
+    }
+  }
+  @media(min-width: 768px) {
+    width: 75%;
+  }
+  @media(min-width: 991px) {
+    width: 50%;
+  }
+}
+
+.navigation-item:nth-child(1) .nav-submenu-wrap.active {
+  @extend %navcontent;
+  left: 0;
+  & .submenu-img {
+    margin-bottom: 4vh;
+    & .artist-impression {
+      font-style: italic;
+      font-size: 51%;
+    }
+  }
+  & .submenu-text {
+    @include flexbox($dir: column, $just: space-between);
+    width: 100%;
+    line-height: 1.4;
+    & p {
+      margin-bottom: 1rem;
+    }
+    & p span {
+      font-weight: bold;
+    }
+  }
+}
+
+%nav-layer {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background: $black;
+  opacity: 0.5;
+}
+
+.navigation-item:nth-child(1) .nav-layer.active {
+  @extend %nav-layer;
+}

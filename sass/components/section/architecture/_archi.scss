@@ -1,0 +1,68 @@
+.architecture-section {
+  padding: 10vh 0;
+}
+
+.residences-section,
+.location-section,
+.swiper-section,
+.video-section,
+.team-section {
+  padding-bottom: 10vh;
+}
+
+.section-header {
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+.section-wrapper {
+  @include flexbox($dir: column, $align-items: center);
+  width: 90%;
+  margin: 0 auto;
+  @media(min-width: 1150px) {
+    width: 70%
+  }
+}
+
+.section-paragraph-container {
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 10vh;
+  max-width: 990px;
+  @media(max-width: 999px){
+    max-height: 255px;
+    overflow: hidden;
+  }
+  @media(max-width: 767px) {
+    max-height: 395px;
+    overflow: hidden;
+  }
+}
+
+.section-paragraph {
+  line-height: 1.48;
+}
+
+.section-img-container {
+  padding: 10vh 0;
+  & .img-wrap {
+    @media(min-width: 768px) {
+      width: 90%;
+      margin: 0 auto;
+      max-width: 1500px;
+    }
+    & .arieal-img {
+      @media(min-width: 1150px){
+        width: 90%;
+        margin: 0 auto;
+      }
+    }
+  }
+}
+
+.artist-impression {
+  font-style: italic;
+  font-size: 51%;
+}

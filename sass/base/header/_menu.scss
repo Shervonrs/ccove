@@ -1,0 +1,21 @@
+.navigation-item:nth-child(3) .nav-submenu-wrap.active{
+  @extend %navcontent;
+  left: 0;
+  background: $black;
+  & .submenu-item {
+    margin-bottom: 24%;
+    margin-left: 12%;
+  }
+  & .submenu-list .submenu-item a {
+    color: $white;
+  }
+  & .nav-submenu-container .menu-close-btn {
+    &:before, &:after {
+      background: $white;
+    }
+  }
+}
+
+.navigation-item:nth-child(3) .nav-layer.active {
+  @extend %nav-layer;
+}

@@ -1,0 +1,194 @@
+
+.interior-info .sub-info-wrapper {
+  @media(min-width: 767px){
+    flex-direction: row-reverse;
+  }
+}
+
+.interior-info .sub-info-img {
+  & .house-img {
+    background: url('/src/assets/cclvkit.jpg') no-repeat;
+    background-position: center center;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    @media (max-width: 767.99px) {
+      height: 100%;
+      padding-top: 100%;
+    }
+  }
+}
+
+
+
+.interior-info {
+  margin-top: 10vh;
+  @media(min-width: 660px) {
+    margin-top: 25vh;
+  }
+}
+
+.interior-panel {
+  width: 100%;
+  padding: 10vh 0;
+  & .panel-container {
+    padding: 0 4%;
+    height: auto;
+    text-align: center;
+    position: relative;
+    max-width: 1500px;
+    margin: 0 auto;
+    // height: 66vh;
+  }
+  & .panel-header {
+    font-size: 1rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 20vh;
+  }
+  & .material {
+    position: absolute;
+    overflow: hidden;
+  }
+  & .material .panel-img-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  & .material-container {
+    position: relative;
+    max-width: 1500px;
+    height: 252px;
+    width: 100%;
+    @media(max-width: 767px){
+      max-width: 670px;
+      width: 100%;
+    }
+    @media(min-width: 420px){
+      height: 330px;
+    }
+    @media(min-width: 768px){
+      width: 90%;
+      height: 450px;
+      margin: 0 auto;
+    }
+    @media(min-width: 991px){
+      height: 600px;
+    }
+    @media(min-width: 1200px){
+      height: 650px;
+      max-height: 800px
+    }
+  }
+  & .panel-img-container .img {
+    width: 100%;
+    height: 100%;
+  }
+  & .panel-img-container .panel-text {
+     position: absolute;
+     // font-size: .1571428571rem;
+     font-size: 0.1rem;
+     color: $black;
+  }
+  & .material-img-1 {
+    & .img {
+      background: url('/src/assets/wood.jpg') no-repeat;
+      background-size: cover;
+    }
+    & .panel-text {
+      top: 3%;
+      left: 5%;
+    }
+  }
+
+  & .material-img-2 {
+    & .img {
+      background: url('/src/assets/tile.jpeg') no-repeat;
+      background-size: cover;
+    }
+    & .panel-text {
+      bottom: 11%;
+      left: 11%;
+    }
+  }
+  & .material-img-3 {
+    & .img {
+      background: url('/src/assets/glass1.jpg') no-repeat;
+      background-size: cover;
+    }
+    & .panel-text {
+      bottom: 7%;
+      left: 12%;
+    }
+  }
+  & .material-img-4 {
+    & .img {
+      background: url('/src/assets/stainless.jpg') no-repeat;
+      background-size: cover;
+    }
+    & .panel-text {
+      top: 3%;
+      left: 38%;
+    }
+  }
+  & .material-img-5 {
+    .img {
+      background: url('/src/assets/quartz.jpg') no-repeat;
+      background-size: cover;
+    }
+    .panel-text {
+      top: 5%;
+      right: 5%;
+    }
+  }
+  & .material-img-6 {
+    & .img {
+      background: url('/src/assets/backsplash.jpeg') no-repeat;
+      background-size: cover;
+    }
+    & .panel-text {
+      right: 11%;
+      bottom: 7.5%;
+    }
+  }
+  & .materialwrap-1 {
+    left: 1%;
+    top: 0%;
+    width: 43%;
+    height: 59.7232%;
+  }
+  & .materialwrap-2 {
+    left: 0%;
+    top: 57%;
+    width: 42%;
+    height: 41.67%;
+    z-index: -1;
+  }
+  & .materialwrap-3 {
+    left: 25%;
+    top: 55%;
+    width: 28.53295%;
+    height: 50.06%;
+  }
+  & .materialwrap-4 {
+    right: 0%;
+    top: 0%;
+    height: 98%;
+    width: 88%;
+    z-index: -2;
+  }
+  & .materialwrap-5 {
+    right: 0%;
+    top: 0%;
+    width: 34.045%;
+    height: 49.059%;
+  }
+  & .materialwrap-6 {
+    right: 0%;
+    top: 49%;
+    height: 49.225%;
+    width: 37%;
+  }
+}

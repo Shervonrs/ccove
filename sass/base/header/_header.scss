@@ -1,0 +1,73 @@
+.header {
+  height: 100vh;
+  width: 101vw;
+   & .mainTitle {
+     font-family: "copperplate", serif;
+     font-weight: bold;
+     color: $black;
+     position: absolute;
+     font-size: 7vw;
+     top: 47%;
+     left: 23%;
+   }
+}
+
+.nav-container {
+  padding: 5rem 0;
+  position: fixed;
+  width: 100vw;
+  z-index: 1000000;
+  // display: none;
+  &.active {
+    background: white;
+    padding: 1rem 0;
+  }
+}
+
+.navigation-content {
+  @include flexbox($dir: row, $just:space-around );
+  font-family: 'work-sans';
+  font-weight: 500;
+  font-size: 14px;
+  & .navigation-item {
+    @media (max-width: 760px) {
+      &:nth-child(even) {
+        display: none;
+      }
+    }
+  }
+}
+
+.menu-toggle-btn {
+  @media (max-width: 760px) {
+    margin-right: 20px;
+  }
+}
+
+.nav-submenu-wrap,
+.hero-video {
+  display: none;
+}
+
+.navigation-item .menu-wrap span {
+  width: 27.17px;
+  position: absolute;
+  background-color: $black;
+  height: 1px;
+  color: $white;
+  &:nth-child(3) {
+    margin-top: .4rem;
+  }
+  &:nth-child(2) {
+    margin-top: .75rem;
+  }
+}
+
+.bkgColor {
+  background: url('/src/assets/ccparking.jpg') no-repeat center;
+  background-size: cover;
+  height: 100vh;
+  z-index: -200;
+  position: relative;
+  top: 0rem;
+}
