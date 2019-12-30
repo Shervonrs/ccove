@@ -8,7 +8,7 @@
   min-height: 100vh;
   width: 100%;
   & .nav-submenu-container {
-    width: 90%;
+    width: 80%;
     @media(min-width: 1200px) {
       padding-top: 10%;
     }
@@ -52,6 +52,7 @@
   left: 0;
   & .submenu-img {
     margin-bottom: 4vh;
+    margin-top: 7vh;
     & .artist-impression {
       font-style: italic;
       font-size: 51%;
