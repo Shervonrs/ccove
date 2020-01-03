@@ -1,0 +1,27 @@
+.footer {
+  background: $black;
+  padding: 5%;
+  & .contact-info-wrapper {
+    color: $white;
+    width: 100%;
+    line-height: 1.4;
+    font-size: 12px;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    text-align: center;
+    @media(min-width: 768px) {
+      grid-template-rows: none;
+      grid-template-columns: 1fr 1fr 1fr;
+      & .sales-info-wrapper, .residences-info-wrapper {
+        display: grid;
+        grid-template-rows: 1fr 1fr 1fr;
+        position: relative;
+        & .extraInfo {
+          position: absolute;
+          bottom: 0%;
+          justify-self: center;
+        }
+      }
+    }
+  }
+}

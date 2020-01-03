@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function() {
 //methods
 // fullpage_api.setAllowScrolling(true);
 
-// Triggers Nav-bar background once window Y coordinate exceeds the height of header
+// Triggers Nav-bar back ground once window Y coordinate exceeds the height of header
 function activateHeader() {
   if(window.pageYOffset > activeHeader) {
     header.firstElementChild.classList.add('active');
