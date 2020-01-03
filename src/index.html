@@ -350,55 +350,62 @@
           </div>
           <div class="floorplan container">
             <div class="floorplan-sidebar">
-              <a href="#" class="floorplan-type">
-                <span>Type</span>
-                <span>Floor 1</span>
-              </a>
-              <div class="floorplan-info">
-                <ul>
-                  <li>
-                    <span>Bedrooms</span>
-                    <span>2</span>
-                  </li>
-                  <li>
-                    <span>Bathroom</span>
-                    <span>2</span>
-                  </li>
-                  <li>
-                    <span>Area(ft2)</span>
-                    <span>1,404sf.ft.</span>
-                  </li>
-                </ul>
-              </div>
-              <a href="#" class="floorplan-type">
-                <span>Type</span>
-                <span>Floor 2</span>
-              </a>
-              <div class="floorplan-info">
-                <ul>
-                  <li>
-                    <span>Bedrooms</span>
-                    <span>3</span>
-                  </li>
-                  <li>
-                    <span>Bathroom</span>
-                    <span>2</span>
-                  </li>
-                  <li>
-                    <span>Area(ft2)</span>
-                    <span>1,590sf.ft.</span>
-                  </li>
-                </ul>
+              <div class="floorplanWrapper">
+                <div class="floorplan-type">
+                  <span>Type</span>
+                  <select class="floorOptions">
+                    <option value="Floor1">Floor1</option>
+                    <option value="Floor2">Floor2</option>
+                  </select>
+                </div>
+                <div class="floorplanContent one">
+                  <div class="floorplan-info">
+                    <ul>
+                      <li>
+                        <span>Bedrooms</span>
+                        <span>2</span>
+                      </li>
+                      <li>
+                        <span>Bathroom</span>
+                        <span>2</span>
+                      </li>
+                      <li>
+                        <span>Area(ft2)</span>
+                        <span>1,404sf.ft. total</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="floorplanContent two">
+                  <div class="floorplan-info">
+                    <ul>
+                      <li>
+                        <span>Bedrooms</span>
+                        <span>3</span>
+                      </li>
+                      <li>
+                        <span>Bathroom</span>
+                        <span>2</span>
+                      </li>
+                      <li>
+                        <span>Area(ft2)</span>
+                        <span>1,590sf.ft. total</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
               </div>
               <div class="floorplan-download">
-                <a href="#">Download Floorplan</a>
+                <a href="#">Download Floor Plan</a>
               </div>
             </div>
-            <div class="floorplan-img-container">
-              <img src="/src/assets/floorplan1.png" alt="Floorplan One">
-            </div>
-            <div class="floorplan-img-container">
-              <img src="/src/assets/floorplan2.png" alt="Floorplan One">
+            <div class="fl-image-wrapper">
+              <div class="floorplan-img-container one">
+                <img src="/src/assets/floorplan1.png" alt="Floorplan One">
+              </div>
+              <div class="floorplan-img-container two">
+                <img src="/src/assets/floorplan2.png" alt="Floorplan One">
+              </div>
             </div>
           </div>
         </div>
@@ -418,147 +425,149 @@
               consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam.
             </p>
           </div>
-          <div class="location-content">
-            <nav>
-              <div class="nav-select">
-                <div class="select-wrapper">
-                  <a class="nav-list" href="#">
-                    <ul class="nav-items">
-                      <li>Dining</li>
-                      <li>Education</li>
-                      <li>Recreation</li>
-                      <li>Retail</li>
-                    </ul>
-                  </a>
-                  <select class="nav-list-smScreen" name="">
-                    <option value="dining">Dining</option>
-                    <option value="education">Education</option>
-                    <option value="recreation">Recreation</option>
-                    <option value="retail">Retail</option>
-                  </select>
+          <div class="content-wrapper">
+            <div class="location-content">
+              <nav>
+                <div class="nav-select">
+                  <div class="select-wrapper">
+                    <div class="nav-list">
+                      <ul class="nav-items">
+                        <li class="activity">Dining</li>
+                        <li class="activity">Education</li>
+                        <li class="activity">Recreation</li>
+                        <li class="activity">Retail</li>
+                      </ul>
+                    </div>
+                    <select class="nav-list-smScreen" name="">
+                      <option value="Dining">Dining</option>
+                      <option value="Education">Education</option>
+                      <option value="Recreation">Recreation</option>
+                      <option value="Retail">Retail</option>
+                    </select>
+                  </div>
+                </div>
+              </nav>
+              <div class="tab-content">
+                <div class="tab-pane">
+                  <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                      <div class="swiper-slide" id="swiper-slide-blueSail">
+                        <img src="https://media-cdn.tripadvisor.com/media/photo-o/08/50/2d/10/blue-sail.jpg" alt="BlueSail bar and grill">
+                        <div class="swiper-caption">
+                          <h3 class="locationHeader">Blue-Sail Bar and Grill</h3>
+                          <p class="content">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+                            sed diam voluptua.</p>
+                        </div>
+                      </div>
+                      <div class="swiper-slide" id="swiper-slide-TwistedBar">
+                        <img src="https://www.baradvisor.com/wp-content/uploads/job-manager-uploads/job_cover/2018/06/Twisted-Lime-cover-1.jpg" alt="wisted Lime Sports Bar and Grill">
+                        <div class="swiper-caption">
+                          <h3 class="locationHeader">Twisted Lime Sports Bar and Grill</h3>
+                          <p class="content">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+                            sed diam voluptua.</p>
+                        </div>
+                      </div>
+                      <div class="swiper-slide" id="swiper-slide-Bon">
+                        <img srcset="https://bigseventravel.com/wp-content/uploads/2019/09/Bon-Vivants.jpg 1024w, https://bigseventravel.com/wp-content/uploads/2019/09/Bon-Vivants-300x200.jpg 300w, https://bigseventravel.com/wp-content/uploads/2019/09/Bon-Vivants-768x513.jpg 768w, https://bigseventravel.com/wp-content/uploads/2019/09/Bon-Vivants-600x401.jpg 600w, https://bigseventravel.com/wp-content/uploads/2019/09/Bon-Vivants-800x534.jpg 800w, https://bigseventravel.com/wp-content/uploads/2019/09/Bon-Vivants-227x152.jpg 227w, https://bigseventravel.com/wp-content/uploads/2019/09/Bon-Vivants-143x96.jpg 143w, https://bigseventravel.com/wp-content/uploads/2019/09/Bon-Vivants-585x390.jpg 585w, https://bigseventravel.com/wp-content/uploads/2019/09/Bon-Vivants-385x257.jpg 385w">
+                        <div class="swiper-caption">
+                          <h3 class="locationHeader">Bon Vivants</h3>
+                          <p class="content">Not only is Bon Vivants one of the most Instagrammable places in Nassau, but it’s also the perfect place to relax with an afternoon tea or coffee.
+                            This place is actually a cocktail bar as well, and the owners wanted to create a space that perfectly mixed Caribbean art and history with the craft of cocktails.
+                            It’s truly one of the most beautiful cafes in the world.
+                          </p>
+                        </div>
+                      </div>
+                        <div class="swiper-slide" id="swiper-slide-deck">
+                          <img src="https://i.pinimg.com/564x/e8/d5/df/e8d5df0d94242bc3b39824266ffcc61e.jpg" alt="The Poop Deck">
+                          <div class="swiper-caption">
+                            <h3 class="locationHeader">The Poop Deck</h3>
+                            <p class="content">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+                              sed diam voluptua.</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="tab-pane">
+                    <div class="swiper-container">
+                      <div class="swiper-wrapper">
+                        <div class="swiper-slide" id="swiper-slide-Tambearly">
+                          <img src="https://lh5.googleusercontent.com/p/AF1QipP8hl3gfMkHp4_O7yigV7ZA3NMhmtbREHqyoZXJ=w406-h228-k-no" alt="Tambearly International School">
+                          <div class="swiper-caption">
+                            <h3 class="locationHeader">Tambearly International School</h3>
+                            <p class="content">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+                              sed diam voluptua.</p>
+                          </div>
+                        </div>
+                        <div class="swiper-slide" id="swiper-slide-LyfordCay">
+                          <img src="https://www.justinternationalschools.com/sites/default/files/styles/700x300/public/campusphoto/Lyford%20Cay%20International%20School%20Bahamas%20Campus.jpg?itok=hHMyNn4V" alt="Lyford Cay International School">
+                          <div class="swiper-caption">
+                            <h3 class="locationHeader">Lyford Cay International School</h3>
+                            <p class="content">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+                              sed diam voluptua.</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="tab-pane">
+                    <div class="swiper-container">
+                      <div class="swiper-wrapper">
+                        <div class="swiper-slide" id="swiper-slide-beach">
+                          <img src="https://lh5.googleusercontent.com/p/AF1QipNiZpgweKssFIVLU7pdliPC5zeO-0IKvyXu8HP0=w203-h203-k-no" alt="Sandyport Beach">
+                          <div class="swiper-caption">
+                            <h3 class="locationHeader">Sandyport Beach</h3>
+                            <p class="content">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+                              sed diam voluptua.</p>
+                          </div>
+                        </div>
+                        <div class="swiper-slide" id="swiper-slide-zoo">
+                          <img src="https://eatsleepcruise.com/wp-content/uploads/2016/03/Ardastra-GardensF.jpg" alt="Lyford Cay International School">
+                          <div class="swiper-caption">
+                            <h3 class="locationHeader">Ardastra Gardens & Zoo</h3>
+                            <p class="content">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+                              sed diam voluptua.</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="tab-pane">
+                    <div class="swiper-container">
+                      <div class="swiper-wrapper">
+                        <div class="swiper-slide" id="swiper-slide-beach">
+                          <img src="https://lh5.googleusercontent.com/p/AF1QipNLGlwcWcCiEEiyPC1bD99WpIHGfRy0pvAcIr-u=w203-h152-k-no" alt="Breitling">
+                          <div class="swiper-caption">
+                            <h3 class="locationHeader">Breitling Boutique</h3>
+                            <p class="content">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+                              sed diam voluptua.</p>
+                          </div>
+                        </div>
+                        <div class="swiper-slide" id="swiper-slide-zoo">
+                          <img src="http://supervaluequalitymarkets.com/wp-content/uploads/2015/01/weekly-specials-v4.jpg" srcset="http://supervaluequalitymarkets.com/wp-content/uploads/2015/01/weekly-specials-v4.jpg 600w, http://supervaluequalitymarkets.com/wp-content/uploads/2015/01/weekly-specials-v4-300x240.jpg 300w" alt="SuperMarket">
+                          <div class="swiper-caption">
+                            <h3 class="locationHeader">Quality Markets</h3>
+                            <p class="content">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+                              sed diam voluptua.</p>
+                          </div>
+                        </div>
+                        <div class="swiper-slide" id="swiper-slide-zoo">
+                          <img src="https://www.bahamaslocal.com/files/NEW_oasisOct.jpg" alt="SuperMarket">
+                          <div class="swiper-caption">
+                            <h3 class="locationHeader">Oasis Chich living</h3>
+                            <p class="content">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+                              sed diam voluptua.</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </nav>
-            <div class="tab-content">
-              <div class="tab-pane">
-                <div class="swiper-container">
-                  <div class="swiper-wrapper">
-                    <div class="swiper-slide" id="swiper-slide-blueSail">
-                      <img src="https://media-cdn.tripadvisor.com/media/photo-o/08/50/2d/10/blue-sail.jpg" alt="BlueSail bar and grill">
-                      <div class="swiper-caption">
-                        <h3>Blue-Sail Bar and Grill</h3>
-                        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-                          sed diam voluptua.</p>
-                      </div>
-                    </div>
-                    <div class="swiper-slide" id="swiper-slide-TwistedBar">
-                      <img src="https://www.baradvisor.com/wp-content/uploads/job-manager-uploads/job_cover/2018/06/Twisted-Lime-cover-1.jpg" alt="wisted Lime Sports Bar and Grill">
-                      <div class="swiper-caption">
-                        <h3>Twisted Lime Sports Bar and Grill</h3>
-                        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-                          sed diam voluptua.</p>
-                      </div>
-                    </div>
-                    <div class="swiper-slide" id="swiper-slide-Bon">
-                      <img srcset="https://bigseventravel.com/wp-content/uploads/2019/09/Bon-Vivants.jpg 1024w, https://bigseventravel.com/wp-content/uploads/2019/09/Bon-Vivants-300x200.jpg 300w, https://bigseventravel.com/wp-content/uploads/2019/09/Bon-Vivants-768x513.jpg 768w, https://bigseventravel.com/wp-content/uploads/2019/09/Bon-Vivants-600x401.jpg 600w, https://bigseventravel.com/wp-content/uploads/2019/09/Bon-Vivants-800x534.jpg 800w, https://bigseventravel.com/wp-content/uploads/2019/09/Bon-Vivants-227x152.jpg 227w, https://bigseventravel.com/wp-content/uploads/2019/09/Bon-Vivants-143x96.jpg 143w, https://bigseventravel.com/wp-content/uploads/2019/09/Bon-Vivants-585x390.jpg 585w, https://bigseventravel.com/wp-content/uploads/2019/09/Bon-Vivants-385x257.jpg 385w">
-                      <div class="swiper-caption">
-                        <h3>Bon Vivants</h3>
-                        <p>Not only is Bon Vivants one of the most Instagrammable places in Nassau, but it’s also the perfect place to relax with an afternoon tea or coffee.
-                          This place is actually a cocktail bar as well, and the owners wanted to create a space that perfectly mixed Caribbean art and history with the craft of cocktails.
-                          It’s truly one of the most beautiful cafes in the world.
-                        </p>
-                      </div>
-                    </div>
-                      <div class="swiper-slide" id="swiper-slide-deck">
-                        <img src="https://i.pinimg.com/564x/e8/d5/df/e8d5df0d94242bc3b39824266ffcc61e.jpg" alt="The Poop Deck">
-                        <div class="swiper-caption">
-                          <h3>The Poop Deck</h3>
-                          <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-                            sed diam voluptua.</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="tab-pane">
-                  <div class="swiper-container">
-                    <div class="swiper-wrapper">
-                      <div class="swiper-slide" id="swiper-slide-Tambearly">
-                        <img src="https://lh5.googleusercontent.com/p/AF1QipP8hl3gfMkHp4_O7yigV7ZA3NMhmtbREHqyoZXJ=w406-h228-k-no" alt="Tambearly International School">
-                        <div class="swiper-caption">
-                          <h3>Tambearly International School</h3>
-                          <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-                            sed diam voluptua.</p>
-                        </div>
-                      </div>
-                      <div class="swiper-slide" id="swiper-slide-LyfordCay">
-                        <img src="https://www.justinternationalschools.com/sites/default/files/styles/700x300/public/campusphoto/Lyford%20Cay%20International%20School%20Bahamas%20Campus.jpg?itok=hHMyNn4V" alt="Lyford Cay International School">
-                        <div class="swiper-caption">
-                          <h3>Lyford Cay International School</h3>
-                          <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-                            sed diam voluptua.</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="tab-pane">
-                  <div class="swiper-container">
-                    <div class="swiper-wrapper">
-                      <div class="swiper-slide" id="swiper-slide-beach">
-                        <img src="https://lh5.googleusercontent.com/p/AF1QipNiZpgweKssFIVLU7pdliPC5zeO-0IKvyXu8HP0=w203-h203-k-no" alt="Sandyport Beach">
-                        <div class="swiper-caption">
-                          <h3>Sandyport Beach</h3>
-                          <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-                            sed diam voluptua.</p>
-                        </div>
-                      </div>
-                      <div class="swiper-slide" id="swiper-slide-zoo">
-                        <img src="https://eatsleepcruise.com/wp-content/uploads/2016/03/Ardastra-GardensF.jpg" alt="Lyford Cay International School">
-                        <div class="swiper-caption">
-                          <h3>Ardastra Gardens & Zoo</h3>
-                          <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-                            sed diam voluptua.</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="tab-pane">
-                  <div class="swiper-container">
-                    <div class="swiper-wrapper">
-                      <div class="swiper-slide" id="swiper-slide-beach">
-                        <img src="https://lh5.googleusercontent.com/p/AF1QipNLGlwcWcCiEEiyPC1bD99WpIHGfRy0pvAcIr-u=w203-h152-k-no" alt="Breitling">
-                        <div class="swiper-caption">
-                          <h3>Breitling Boutique</h3>
-                          <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-                            sed diam voluptua.</p>
-                        </div>
-                      </div>
-                      <div class="swiper-slide" id="swiper-slide-zoo">
-                        <img src="http://supervaluequalitymarkets.com/wp-content/uploads/2015/01/weekly-specials-v4.jpg" srcset="http://supervaluequalitymarkets.com/wp-content/uploads/2015/01/weekly-specials-v4.jpg 600w, http://supervaluequalitymarkets.com/wp-content/uploads/2015/01/weekly-specials-v4-300x240.jpg 300w" alt="SuperMarket">
-                        <div class="swiper-caption">
-                          <h3>Quality Markets</h3>
-                          <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-                            sed diam voluptua.</p>
-                        </div>
-                      </div>
-                      <div class="swiper-slide" id="swiper-slide-zoo">
-                        <img src="https://www.bahamaslocal.com/files/NEW_oasisOct.jpg" alt="SuperMarket">
-                        <div class="swiper-caption">
-                          <h3>Oasis Chich living</h3>
-                          <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-                            sed diam voluptua.</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+              <div class="mapcontent">
+                <div id="map"></div>
               </div>
-            </div>
-            <div class="mapcontent">
-              <div id="map"></div>
-            </div>
+          </div>
           <div class="section swiper-section">
             <div class="swiper-container">
               <div class="swiper-wrapper">

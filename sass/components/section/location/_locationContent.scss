@@ -1,0 +1,76 @@
+.content-wrapper {
+  & .mapcontent {
+    grid-area: map;
+  }
+  & .location-content {
+    margin-top: 10vh;
+    grid-area: content;
+    & .select-wrapper {
+      text-align: center;
+      width: 90%;
+      margin: 0 auto;
+      & .nav-list {
+        display: none;
+      }
+      & .nav-list-smScreen {
+        background-color: $bgcolor;
+        border: none;
+        font-family: 'work-sans', sans-serif;
+        font-size: 14px;
+        width: 30%;
+        padding: 1%;
+        line-height: 1;
+        border-radius: 5px;
+        height: 34px;
+        background: url(http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png) no-repeat right;
+        -webkit-appearance: none;
+        background-position-x: 100%;
+      }
+      @media(min-width: 768px) {
+        & .nav-list {
+          display: block;
+          & .nav-items {
+            @include flexbox();
+            & .activity {
+              cursor: pointer;
+              width: 10%;
+              margin: 0 auto;
+            }
+          }
+        }
+        & .nav-list-smScreen {
+          display: none;
+        }
+      }
+    }
+    & .tab-pane {
+      display: none;
+    }
+    & .tab-pane.active {
+      display: block;
+      & .swiper-container {
+        width: 90%;
+        & .swiper-caption .locationHeader {
+          text-align: center;
+          margin:10vh 0;
+        }
+        & p {
+          line-height: 1.4;
+        }
+      }
+      & img {
+        width: 100%;
+      }
+    }
+  }
+  @media (min-width: 768px) {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-areas:
+    'map content';
+    & #map {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}

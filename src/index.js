@@ -7,6 +7,10 @@ const header = document.getElementsByClassName('header')[0];
 const activeHeader =header.offsetHeight;
 let triggeredMenu = [];
 const closeBtn = document.querySelectorAll('.menu-close-btn');
+const select = document.querySelector('.floorplan-type .floorOptions');
+const activities = document.querySelector('.nav-list-smScreen');
+const activity = document.querySelector('.nav-select .select-wrapper .nav-list .nav-items');
+
 
 document.addEventListener("DOMContentLoaded", function() {
   let mapElement = document.getElementById('map');
@@ -45,16 +49,28 @@ window.addEventListener("scroll", () => {
 
 Swiper.use([Navigation, Pagination, Scrollbar]);
 
-var swiper = new Swiper('.architecture-section .swiper-section .swiper-container', {
+var swipers = new Swiper('.architecture-section .swiper-section .swiper-container', {
   navigation: {
-    nextEl: '.swiper-section .swiper-caption .swiper-nav .swiper-button-next',
-    prevEl: '.swiper-section .swiper-caption .swiper-nav .swiper-button-prev',
+    nextEl: '.swiper-section.one .swiper-caption .swiper-nav .swiper-button-next',
+    prevEl: '.swiper-section.one .swiper-caption .swiper-nav .swiper-button-prev',
   },
 });
 
+
+
+
 window.addEventListener('load', function() {
   const caption = document.querySelector('.swiper-caption.one .swiper-caption-wrapper .swiper-caption-container');
+  const floorplone = document.querySelector('.floorplanWrapper .floorplanContent');
+  const floorplanImg = document.querySelector('.fl-image-wrapper .floorplan-img-container');
+  const tabPane = document.querySelector('.location-content .tab-content .tab-pane');
   caption.classList.add('active');
+  floorplone.classList.add('active');
+  floorplanImg.classList.add('active');
+  tabPane.classList.add('active');
+  var swiper = new Swiper('.location-section .location-content .tab-content .tab-pane.active .swiper-container', {
+
+  });
 });
 
 document.addEventListener('click', (e) => {
@@ -117,3 +133,65 @@ function trigger (i , submenu) {
   let activeMenu= submenu[i];
   triggeredMenu.push(activeMenu);
 }
+
+// toggles floorplan based on request
+select.addEventListener('change', (e) => {
+    const floorplanContent = document.querySelectorAll('.floorplanContent');
+    const floorplanImg =  document.querySelectorAll('.floorplan-img-container');
+    const value = e.target.value;
+    console.log(value);
+    for(let j = 0; j < floorplanImg.length; j++) {
+      if(value ==='Floor1' || value === 'Floor2') {
+        floorplanContent[j].classList.remove('active');
+        floorplanImg[j].classList.remove('active');
+      }
+    }
+    for(let i = 0; i < floorplanContent.length; i++) {
+      if( value ==='Floor1' && i === 0) {
+        floorplanContent[i].classList.add('active');
+        floorplanImg[i].classList.add('active');
+      }
+      else if(value ==='Floor2' && i === 1) {
+          floorplanContent[i].classList.add('active');
+          floorplanImg[i].classList.add('active');
+        }
+    }
+  });
+
+  activities.addEventListener('change', (e) => {
+    const tabPane = document.querySelectorAll('.location-content .tab-content .tab-pane');
+    const value = e.target.value
+    const options = e.target.options;
+    for(let i = 0; i < options.length; i++) {
+      if(options[i].textContent === value) {
+        tabPane[i].classList.add('active');
+        var swiper = new Swiper('.location-section .location-content .tab-content .tab-pane.active .swiper-container', {
+        });
+      }
+      else {
+        tabPane[i].classList.remove('active');
+      }
+    }
+  })
+
+  for (let i = 0; i < activity.children.length; i++) {
+    const tabPane = document.querySelectorAll('.location-content .tab-content .tab-pane');
+    const entertainment = document.querySelectorAll('.nav-select .select-wrapper .nav-list .nav-items .activity')
+    const active = tabPane[i].classList.contains('active');
+
+    activity.children[i].addEventListener('click', (e) => {
+      erase();
+      if(activity.children[i].textContent == e.target.textContent){
+        tabPane[i].classList.add('active')
+        var swiper = new Swiper('.location-section .location-content .tab-content .tab-pane.active .swiper-container', {
+        });
+      }
+    })
+  }
+
+  function erase () {
+    for (let i = 0; i < activity.children.length; i++) {
+      const tabPane = document.querySelectorAll('.location-content .tab-content .tab-pane');
+      tabPane[i].classList.remove('active');
+    }
+  }
