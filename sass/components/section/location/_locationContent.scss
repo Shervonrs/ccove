@@ -1,9 +1,9 @@
 .content-wrapper {
+  margin: 10vh 0;
   & .mapcontent {
     grid-area: map;
   }
   & .location-content {
-    margin-top: 10vh;
     grid-area: content;
     & .select-wrapper {
       text-align: center;
@@ -29,6 +29,7 @@
       @media(min-width: 768px) {
         & .nav-list {
           display: block;
+          margin-bottom: 20%;
           & .nav-items {
             @include flexbox();
             & .activity {
@@ -52,7 +53,7 @@
         width: 90%;
         & .swiper-caption .locationHeader {
           text-align: center;
-          margin:10vh 0;
+          margin:5vh 0;
         }
         & p {
           line-height: 1.4;

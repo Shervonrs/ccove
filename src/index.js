@@ -56,15 +56,22 @@ var swipers = new Swiper('.architecture-section .swiper-section .swiper-containe
   },
 });
 
-
-
+var swipers = new Swiper('.location-section .swiper-section.two .swiper-container', {
+  navigation: {
+    nextEl: '.swiper-section.two .swiper-caption.two .swiper-nav-2 .swiper-button-next',
+    prevEl: '.swiper-section.two .swiper-caption.two .swiper-nav-2 .swiper-button-prev',
+  },
+});
 
 window.addEventListener('load', function() {
   const caption = document.querySelector('.swiper-caption.one .swiper-caption-wrapper .swiper-caption-container');
+  const caption2 = document.querySelector('.swiper-caption.two .swiper-caption-wrapper .swiper-caption-container-2');
   const floorplone = document.querySelector('.floorplanWrapper .floorplanContent');
   const floorplanImg = document.querySelector('.fl-image-wrapper .floorplan-img-container');
   const tabPane = document.querySelector('.location-content .tab-content .tab-pane');
   caption.classList.add('active');
+  caption2.classList.add('active');
+
   floorplone.classList.add('active');
   floorplanImg.classList.add('active');
   tabPane.classList.add('active');
@@ -82,6 +89,29 @@ document.addEventListener('click', (e) => {
     for (let i = 0; i < swiperSlide.length; i++) {
       const activeSlide = swiperSlide[i].classList.contains("swiper-slide-active");
       if(activeSlide) {
+        // add active class
+        caption[i].classList.add('active');
+      }
+      else{
+        // remove active class
+        caption[i].classList.remove('active');
+      }
+    };
+  }
+});
+
+document.addEventListener('click', (e) => {
+  let arrowDirection = e.target;
+  let arrowParentNode = arrowDirection.parentNode.parentElement.parentElement;
+  if((arrowDirection.classList.contains('swiper-button-next') || arrowDirection.classList.contains('swiper-button-prev')) && (arrowParentNode.classList.contains('two'))){
+    console.log(arrowParentNode);
+    console.log(arrowDirection);
+    const swiperSlide = document.querySelectorAll('.swiper-wrapper.two .swiper-slide.two');
+    const caption = document.querySelectorAll('.swiper-caption.two .swiper-caption-wrapper .swiper-caption-container-2');
+    for (let i = 0; i < swiperSlide.length; i++) {
+      const activeSlide = swiperSlide[i].classList.contains("swiper-slide-active");
+      if(activeSlide) {
+        console.log(activeSlide);
         // add active class
         caption[i].classList.add('active');
       }
@@ -158,6 +188,7 @@ select.addEventListener('change', (e) => {
     }
   });
 
+
   activities.addEventListener('change', (e) => {
     const tabPane = document.querySelectorAll('.location-content .tab-content .tab-pane');
     const value = e.target.value
@@ -174,6 +205,7 @@ select.addEventListener('change', (e) => {
     }
   })
 
+// Location Toggle
   for (let i = 0; i < activity.children.length; i++) {
     const tabPane = document.querySelectorAll('.location-content .tab-content .tab-pane');
     const entertainment = document.querySelectorAll('.nav-select .select-wrapper .nav-list .nav-items .activity')

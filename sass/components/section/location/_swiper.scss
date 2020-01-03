@@ -1,0 +1,89 @@
+.location-section .swiper-section {
+  margin-top: 10vh;
+  position: relative;
+  @include flexbox($dir: column);
+  height: 100vh;
+  width: 100vw;
+  margin: 0 auto;
+  & .swiper-container {
+      height: 100vh;
+      width: 100vw;
+    & .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+      @include flexbox($just: center, $align-items: center);
+      & .ccimage {
+        width: 100%;
+        height: 100%;
+        & .img {
+          height: 100%;
+          width: 100%;
+        }
+      }
+      & .img-wrap-1 .img {
+        background: url('/src/assets/seashore.jpg') no-repeat;
+        background-size: cover;
+        background-position: center;
+
+      }
+      & .img-wrap-2 .img {
+        background: url('/src/assets/golfball.jpg') no-repeat;
+        background-size: cover;
+        background-position: center;
+      }
+      & .img-wrap-3 .img {
+        background: url('/src/assets/bahamar.jpg') no-repeat;
+        background-size: cover;
+        background-position: center;
+      }
+      & .img-wrap-4 .img {
+        background: url('/src/assets/waterpark.jpeg') no-repeat;
+        background-size: cover;
+        background-position: center;
+      }
+    }
+  }
+  & .swiper-caption.two {
+    position: absolute;
+    bottom: 0%;
+    width: 100%;
+    @include flexbox($dir: row, $just: space-between);
+    & .swiper-caption-wrapper {
+      width: 100%;
+    }
+    & .swiper-caption-container-2 {
+        display: none;
+      }
+    & .swiper-caption-container-2.active{
+      @include flexbox($dir: row);
+      width: 100%;
+      & .swiper-number {
+        padding-left: 5%;
+      }
+      & .swiper-text {
+        margin: 0 auto;
+      }
+    }
+    & .swiper-button-prev {
+      color: $black;
+      left: 79%;
+      @media(min-width: 375px){
+        left: 84%;
+      }
+      @media(min-width: 768px){
+        left: 90%;
+      }
+    }
+    & .swiper-button-next {
+      color: $black;
+      right: 5%;
+    }
+    & .swiper-button-next:after, .swiper-container-rtl .swiper-button-prev:after{
+      font-size: 14px;
+    }
+    & .swiper-button-prev:after, .swiper-container-rtl .swiper-button-next:after {
+      font-size: 14px;
+    }
+  }
+}
