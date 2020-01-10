@@ -9,6 +9,7 @@
       border: none;
       border-bottom: 1px solid black;
       box-shadow: none;
+      background: #eee;
       &::placeholder {
         color: #222;
         font-family: 'work-sans', serif;
@@ -24,7 +25,7 @@
   }
   & select {
     border: none;
-    background: $white;
+    background: #eee;
   }
 }
 
@@ -32,7 +33,7 @@
   width: 25%;
   padding: 0.5rem;
   margin: 5% 0%;
-  // background: $white;
+  background: none;
   border: none;
   text-align: left;
 }

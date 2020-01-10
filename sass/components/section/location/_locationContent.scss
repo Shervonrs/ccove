@@ -36,6 +36,10 @@
               cursor: pointer;
               width: 10%;
               margin: 0 auto;
+              opacity: .3;
+              &.active {
+                opacity: 1;
+              }
             }
           }
         }
@@ -51,6 +55,12 @@
       display: block;
       & .swiper-container {
         width: 90%;
+        & .swiper-slide-prev, .swiper-slide-next {
+          opacity: .3;
+          cursor: pointer;
+        }
+        & .swiper-slide {
+        }
         & .swiper-caption .locationHeader {
           text-align: center;
           margin:5vh 0;

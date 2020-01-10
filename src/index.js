@@ -4,13 +4,15 @@ import { Map } from './maps';
 import { Swiper, Navigation, Pagination, Scrollbar } from 'swiper/js/swiper.esm.js';
 import 'swiper/css/swiper.min.css';
 const header = document.getElementsByClassName('header')[0];
+const archiSection = document.getElementsByClassName('architecture-section')[0];
+const navcontainer = document.getElementsByClassName('nav-container')[0];
 const activeHeader =header.offsetHeight;
 let triggeredMenu = [];
 const closeBtn = document.querySelectorAll('.menu-close-btn');
 const select = document.querySelector('.floorplan-type .floorOptions');
 const activities = document.querySelector('.nav-list-smScreen');
 const activity = document.querySelector('.nav-select .select-wrapper .nav-list .nav-items');
-
+const mapImg = document.querySelector('#map');
 
 document.addEventListener("DOMContentLoaded", function() {
   let mapElement = document.getElementById('map');
@@ -18,6 +20,7 @@ document.addEventListener("DOMContentLoaded", function() {
     Map.createMap(googleMaps, mapElement);
   });
 });
+
 
 // var fullPageInstance = new fullpage('#fullpage', {
 //     autoScrolling:true,
@@ -35,7 +38,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
 // Triggers Nav-bar back ground once window Y coordinate exceeds the height of header
 function activateHeader() {
-  if(window.pageYOffset > activeHeader) {
+  // if(screen.width )
+  if(window.pageYOffset >= (activeHeader-150)) {
+    // console.log(activeHeader, archiSection.offsetTop);
     header.firstElementChild.classList.add('active');
   }
   else {
@@ -69,14 +74,22 @@ window.addEventListener('load', function() {
   const floorplone = document.querySelector('.floorplanWrapper .floorplanContent');
   const floorplanImg = document.querySelector('.fl-image-wrapper .floorplan-img-container');
   const tabPane = document.querySelector('.location-content .tab-content .tab-pane');
+  const active = document.querySelector('.nav-items .activity');
+  const paneActive = document.querySelector('.location-content .tab-content .tab-pane.active .swiper-container .swiper-wrapper');
+
+
   caption.classList.add('active');
   caption2.classList.add('active');
-
+  active.classList.add('active');
   floorplone.classList.add('active');
   floorplanImg.classList.add('active');
   tabPane.classList.add('active');
   var swiper = new Swiper('.location-section .location-content .tab-content .tab-pane.active .swiper-container', {
-
+    slidesPerView: 1.27,
+    spaceBetween: 50,
+    centeredSlides: true,
+    slideToClickedSlide: true,
+    spaceBetween: 30
   });
 });
 
@@ -104,14 +117,11 @@ document.addEventListener('click', (e) => {
   let arrowDirection = e.target;
   let arrowParentNode = arrowDirection.parentNode.parentElement.parentElement;
   if((arrowDirection.classList.contains('swiper-button-next') || arrowDirection.classList.contains('swiper-button-prev')) && (arrowParentNode.classList.contains('two'))){
-    console.log(arrowParentNode);
-    console.log(arrowDirection);
     const swiperSlide = document.querySelectorAll('.swiper-wrapper.two .swiper-slide.two');
     const caption = document.querySelectorAll('.swiper-caption.two .swiper-caption-wrapper .swiper-caption-container-2');
     for (let i = 0; i < swiperSlide.length; i++) {
       const activeSlide = swiperSlide[i].classList.contains("swiper-slide-active");
       if(activeSlide) {
-        console.log(activeSlide);
         // add active class
         caption[i].classList.add('active');
       }
@@ -169,7 +179,6 @@ select.addEventListener('change', (e) => {
     const floorplanContent = document.querySelectorAll('.floorplanContent');
     const floorplanImg =  document.querySelectorAll('.floorplan-img-container');
     const value = e.target.value;
-    console.log(value);
     for(let j = 0; j < floorplanImg.length; j++) {
       if(value ==='Floor1' || value === 'Floor2') {
         floorplanContent[j].classList.remove('active');
@@ -212,11 +221,20 @@ select.addEventListener('change', (e) => {
     const active = tabPane[i].classList.contains('active');
 
     activity.children[i].addEventListener('click', (e) => {
+      let activityText= activity.children[i].textContent;
+      let mouseText = e.target.textContent;
       erase();
-      if(activity.children[i].textContent == e.target.textContent){
-        tabPane[i].classList.add('active')
+      if(activityText == mouseText){
+        activity.children[i].classList.add('active');
+        tabPane[i].classList.add('active');
         var swiper = new Swiper('.location-section .location-content .tab-content .tab-pane.active .swiper-container', {
+          slidesPerView: 1.27,
+          spaceBetween: 50,
+          centeredSlides: true,
+          slideToClickedSlide: true,
+          spaceBetween: 30
         });
+        Map.changeMap(mouseText);
       }
     })
   }
@@ -224,6 +242,34 @@ select.addEventListener('change', (e) => {
   function erase () {
     for (let i = 0; i < activity.children.length; i++) {
       const tabPane = document.querySelectorAll('.location-content .tab-content .tab-pane');
+      const active = document.querySelectorAll('.nav-items .activity');
       tabPane[i].classList.remove('active');
+      active[i].classList.remove('active');
     }
   }
+
+  mapImg.addEventListener('click', (e) => {
+    const mouse = e.target.parentElement.title;
+    const paneActive = document.querySelector('.location-content .tab-content .tab-pane.active .swiper-container .swiper-wrapper');
+    const activeChild = paneActive.children;
+    const imgActive = document.querySelectorAll('#map img');
+    for (let i = 0; i < imgActive.length; i++) {
+      const parentTitle = imgActive[i].parentElement.title;
+      if(mouse === parentTitle) {
+        for(let j = 0; j < activeChild.length; j++) {
+          if(mouse === activeChild[j].id) {
+            var swiper = new Swiper('.tab-pane.active .swiper-container', {
+              slidesPerView: 1.27,
+              spaceBetween: 50,
+              centeredSlides: true,
+              slideToClickedSlide: true,
+              spaceBetween: 30
+            });
+            swiper.slideTo([j])
+          }
+        }
+      }
+    }
+  })
+
+  // if active pane
