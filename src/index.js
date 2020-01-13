@@ -3,10 +3,13 @@ import fullpage from 'fullpage.js';
 import { Map } from './maps';
 import { Swiper, Navigation, Pagination, Scrollbar } from 'swiper/js/swiper.esm.js';
 import 'swiper/css/swiper.min.css';
+const headerBg = document.getElementsByClassName('header-background')[0];
 const header = document.getElementsByClassName('header')[0];
 const archiSection = document.getElementsByClassName('architecture-section')[0];
 const navcontainer = document.getElementsByClassName('nav-container')[0];
-const activeHeader =header.offsetHeight;
+const sectionFade = document.querySelectorAll('.section-fade');
+const activeHeader =headerBg.offsetHeight;
+console.log(activeHeader);
 let triggeredMenu = [];
 const closeBtn = document.querySelectorAll('.menu-close-btn');
 const select = document.querySelector('.floorplan-type .floorOptions');
@@ -22,18 +25,16 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 
-// var fullPageInstance = new fullpage('#fullpage', {
-//     autoScrolling:true,
-//     scrollHorizontally: true
+
+// const fullPageInstance = new fullpage('#fullpage', {
+//   licenseKey: "0E496816-B1F5431F-9BDA280C-C7DD1D73",
+//   easing: 'easeInOutCubic',
+//   anchors: ['architecture-section', 'exterior-info', 'interior,info', 'residences-section', 'location-section', 'video-section', 'team-section'],
+//   autoscrolling: true
 // });
 
-// new fullpage('#fullpage', {
-// 	//options here
-// 	autoScrolling:true,
-// 	scrollHorizontally: true
-// });
 
-//methods
+// methods
 // fullpage_api.setAllowScrolling(true);
 
 // Triggers Nav-bar back ground once window Y coordinate exceeds the height of header
@@ -47,21 +48,55 @@ function activateHeader() {
     header.firstElementChild.classList.remove('active');
   }
 };
+//
+// function activateFade() {
+//   for(let i = 0; i < sectionFade.length; i++) {
+//     console.log(window.pageYOffset, sectionFade[i].clientHeight, sectionFade[i].offsetHeight, sectionFade[i].getBoundingClientRect);
+//     if(window.pageYOffset ===  getOffset(sectionFade[i]).top) {
+//       console.log('hel');
+//     }
+//   }
+// }
 
-window.addEventListener("scroll", () => {
+function createObserver(){
+  // let target = document.querySelector('#fullpage');
+  for(let i = 0; i < sectionFade.length; i++) {
+    let target = sectionFade[i];
+    let options = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0
+    }
+    let observer = new IntersectionObserver(handleIntersect, options)
+    observer.observe(target)
+  }
+}
+
+function handleIntersect(entries, observer) {
+  entries.forEach(entry => {
+    if(entry.isIntersecting) {
+      entry.target.classList.add('activated')
+    }
+  })
+}
+
+
+window.addEventListener("scroll", (e) => {
   activateHeader();
+  createObserver();
 });
+
 
 Swiper.use([Navigation, Pagination, Scrollbar]);
 
-var swipers = new Swiper('.architecture-section .swiper-section .swiper-container', {
+var swipers = new Swiper('.swiper-section.one .swiper-container', {
   navigation: {
     nextEl: '.swiper-section.one .swiper-caption .swiper-nav .swiper-button-next',
     prevEl: '.swiper-section.one .swiper-caption .swiper-nav .swiper-button-prev',
   },
 });
 
-var swipers = new Swiper('.location-section .swiper-section.two .swiper-container', {
+var swipers = new Swiper('.swiper-section.two .swiper-container', {
   navigation: {
     nextEl: '.swiper-section.two .swiper-caption.two .swiper-nav-2 .swiper-button-next',
     prevEl: '.swiper-section.two .swiper-caption.two .swiper-nav-2 .swiper-button-prev',
@@ -206,6 +241,11 @@ select.addEventListener('change', (e) => {
       if(options[i].textContent === value) {
         tabPane[i].classList.add('active');
         var swiper = new Swiper('.location-section .location-content .tab-content .tab-pane.active .swiper-container', {
+          slidesPerView: 1.27,
+          spaceBetween: 50,
+          centeredSlides: true,
+          slideToClickedSlide: true,
+          spaceBetween: 30
         });
       }
       else {
@@ -271,5 +311,3 @@ select.addEventListener('change', (e) => {
       }
     }
   })
-
-  // if active pane
