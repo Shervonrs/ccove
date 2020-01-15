@@ -25,7 +25,14 @@
   }
   & select {
     border: none;
-    background: #eee;
+    background-color: #eee;
+    background: url("http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png") no-repeat right;
+    -webkit-appearance: none;
+    background-position-x: 100%;
+    width: 92%;
+    @media (min-width: 1000px) {
+      width: 50%;
+    }
   }
 }
 
