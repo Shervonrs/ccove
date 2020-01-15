@@ -1,4 +1,6 @@
 const path = require('path');
+const Dotenv = require('dotenv-webpack');
+const imagemin = require('imagemin');
 
 module.exports = {
   entry: {
@@ -22,14 +24,28 @@ module.exports = {
         }
       },
       {
-         test: /\.(png|svg|jpg|gif)$/,
-         use:  {
-           loader: "file-loader",
-           options: {
-             name: "[name].[hash].[ext]",
-             outputPath: "imgs"
-           }
-         }
+         test: /\.(png|svg|jpe?g|gif)$/,
+         use:  [
+             {
+               loader: "url-loader",
+               options: {
+                 name: "[name].[hash].[ext]",
+                 outputPath: "img",
+                 esModule: false
+               }
+             },
+             {
+               loader: "img-loader",
+               options: {
+                 plugins: [
+                   require("imagemin-mozjpeg")({
+                     progressive: true,
+                     quality: 30
+                   })
+                 ]
+               }
+             }
+         ]
        },
        {
          test: /\.html$/,
@@ -43,4 +59,7 @@ module.exports = {
       },
     ],
   },
-};
+  plugins: [
+    new Dotenv()
+    ]
+  };

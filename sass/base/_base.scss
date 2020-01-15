@@ -384,9 +384,36 @@ textarea {
   opacity: 0;
   transform: translate3d(0, 50px, 0);
   will-change: opacity,transform;
-  &.activated {
+  &.activate {
     opacity: 1;
     transform: translate3d(0, 0, 0);
     transition: opacity .5s ease, transform .5s ease;
+    &[data-delay="150"] {
+      transition-delay: .15s;
+    }
+    &[data-delay="300"] {
+      transition-delay: .3s;
+    }
+    &[data-delay="400"] {
+      transition-delay: .4s;
+    }
+    &[data-delay="1"] {
+      transition-delay: 1s;
+    }
+    &[data-delay="2"] {
+      transition-delay: 1.5s;
+    }
+    &[data-delay="3"] {
+      transition-delay: 1.7s;
+    }
+    &[data-delay="4"] {
+      transition-delay: 1.9s;
+    }
+    &[data-delay="5"] {
+      transition-delay: 2.1s;
+    }
+    &[data-delay="6"] {
+      transition-delay: 2.3s;
+    }
   }
 }

@@ -1,5 +1,4 @@
 import '../sass/styles.scss';
-import fullpage from 'fullpage.js';
 import { Map } from './maps';
 import { Swiper, Navigation, Pagination, Scrollbar } from 'swiper/js/swiper.esm.js';
 import 'swiper/css/swiper.min.css';
@@ -9,7 +8,6 @@ const archiSection = document.getElementsByClassName('architecture-section')[0];
 const navcontainer = document.getElementsByClassName('nav-container')[0];
 const sectionFade = document.querySelectorAll('.section-fade');
 const activeHeader =headerBg.offsetHeight;
-console.log(activeHeader);
 let triggeredMenu = [];
 const closeBtn = document.querySelectorAll('.menu-close-btn');
 const select = document.querySelector('.floorplan-type .floorOptions');
@@ -25,41 +23,20 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 
-
-// const fullPageInstance = new fullpage('#fullpage', {
-//   licenseKey: "0E496816-B1F5431F-9BDA280C-C7DD1D73",
-//   easing: 'easeInOutCubic',
-//   anchors: ['architecture-section', 'exterior-info', 'interior,info', 'residences-section', 'location-section', 'video-section', 'team-section'],
-//   autoscrolling: true
-// });
-
-
-// methods
-// fullpage_api.setAllowScrolling(true);
-
 // Triggers Nav-bar back ground once window Y coordinate exceeds the height of header
 function activateHeader() {
   // if(screen.width )
   if(window.pageYOffset >= (activeHeader-150)) {
     // console.log(activeHeader, archiSection.offsetTop);
-    header.firstElementChild.classList.add('active');
+    header.firstElementChild.classList.add('activate');
   }
   else {
-    header.firstElementChild.classList.remove('active');
+    header.firstElementChild.classList.remove('activate');
   }
 };
-//
-// function activateFade() {
-//   for(let i = 0; i < sectionFade.length; i++) {
-//     console.log(window.pageYOffset, sectionFade[i].clientHeight, sectionFade[i].offsetHeight, sectionFade[i].getBoundingClientRect);
-//     if(window.pageYOffset ===  getOffset(sectionFade[i]).top) {
-//       console.log('hel');
-//     }
-//   }
-// }
 
+// Once window crosses elements with class 'sectionFade', fade is activated
 function createObserver(){
-  // let target = document.querySelector('#fullpage');
   for(let i = 0; i < sectionFade.length; i++) {
     let target = sectionFade[i];
     let options = {
@@ -75,18 +52,19 @@ function createObserver(){
 function handleIntersect(entries, observer) {
   entries.forEach(entry => {
     if(entry.isIntersecting) {
-      entry.target.classList.add('activated')
+      entry.target.classList.add('activate')
     }
   })
 }
 
-
+// When scroll is triggered functions are activated
 window.addEventListener("scroll", (e) => {
   activateHeader();
   createObserver();
 });
 
 
+// Swiper is initalized
 Swiper.use([Navigation, Pagination, Scrollbar]);
 
 var swipers = new Swiper('.swiper-section.one .swiper-container', {
@@ -128,6 +106,9 @@ window.addEventListener('load', function() {
   });
 });
 
+// Upon click, function checks to see if click contains first swiper section,
+// Then iterates over elements containing caption using the index of active slide
+// Once both index of caption and slide match, the class 'active' is added to caption.
 document.addEventListener('click', (e) => {
   let arrowDirection = e.target;
   let arrowParentNode = arrowDirection.parentNode.parentElement.parentElement;
@@ -148,6 +129,9 @@ document.addEventListener('click', (e) => {
   }
 });
 
+// Upon click, function checks to see if click contains second swiper section,
+// Then iterates over elements containing caption using the index of active slide
+// Once both index of caption and slide match, the class 'active' is added to caption.
 document.addEventListener('click', (e) => {
   let arrowDirection = e.target;
   let arrowParentNode = arrowDirection.parentNode.parentElement.parentElement;
@@ -172,6 +156,7 @@ document.addEventListener('click', (e) => {
 document.addEventListener('click', (e) => {
   let mouseclick = e.target;
   const navItem = document.querySelectorAll('.nav-item');
+  const navLayer = document.querySelectorAll('.nav-layer');
   const submenu = document.querySelectorAll('.nav-submenu-wrap');
   const menuSpan1 = document.querySelector('.navigation-item .nav-item .menu-wrap .menuIcon.one');
   const menuSpan2 = document.querySelector('.navigation-item .nav-item .menu-wrap .menuIcon.two');
@@ -184,11 +169,13 @@ document.addEventListener('click', (e) => {
       triggeredMenu = [];
       if((i === 0 || i === 4) && ( triggeredMenu.length === 0)){
         activemenu = document.querySelector('.nav-submenu-wrap.active');
+        navLayer[i].classList.add('active');
         trigger(i, submenu);
       }
     } // Triggers Menu Option
     else if ((i === 2) && (mouseclick === menuSpan1  || mouseclick === menuSpan2 || mouseclick === menuSpan3)) {
       submenu[i].classList.add('active');
+      navLayer[i].classList.add('active');
       activemenu = document.querySelector('.nav-submenu-wrap.active');
       trigger(i,submenu);
     }
@@ -196,11 +183,19 @@ document.addEventListener('click', (e) => {
 });
 
 // Iterates over closeBtn and removes active class from dropdown
+// Removes dark background layer from window
 for (let i = 0; i < closeBtn.length; i++) {
   closeBtn[i].addEventListener('click', (e) => {
+    const navLayer = document.querySelectorAll('.nav-layer');
     let menuActive = document.querySelector('.nav-submenu-wrap.active');
     menuActive.classList.remove('active');
+    if( i === 0 || i === 1 || i === 2) {
+      navLayer[i].classList.remove('active');
+      navLayer[2].classList.remove('active');
+      navLayer[4].classList.remove('active');
+    }
   })
+  
 };
 
 // pushes nav-items into triggers array;
@@ -231,7 +226,6 @@ select.addEventListener('change', (e) => {
         }
     }
   });
-
 
   activities.addEventListener('change', (e) => {
     const tabPane = document.querySelectorAll('.location-content .tab-content .tab-pane');

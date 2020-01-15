@@ -84,3 +84,7 @@
 .navigation-item:nth-child(1) .nav-layer.active {
   @extend %nav-layer;
 }
+
+.navigation-item {
+  cursor: pointer;
+}
