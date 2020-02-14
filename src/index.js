@@ -4,6 +4,7 @@ import { Swiper, Navigation, Pagination, Scrollbar } from 'swiper/js/swiper.esm.
 import 'swiper/css/swiper.min.css';
 const headerBg = document.getElementsByClassName('header-background')[0];
 const header = document.getElementsByClassName('header')[0];
+const navSubMenu= document.querySelectorAll('.nav-submenu-container');
 const archiSection = document.getElementsByClassName('architecture-section')[0];
 const navcontainer = document.getElementsByClassName('nav-container')[0];
 const sectionFade = document.querySelectorAll('.section-fade');
@@ -22,6 +23,19 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 });
 
+// detacts whether screen orientation is protrait or landscape and adds/remove the class active
+window.addEventListener('orientationchange', ()=> {
+  for(let i = 0; i < navSubMenu.length; i++) {
+    let angle = screen.orientation.angle;
+    if(angle === 90 && window.screen.width < 850) {
+      navSubMenu[i].classList.add('active');
+      console.log(window.outerWidth)
+    }
+    else {
+      navSubMenu[i].classList.remove('active');
+    }
+  }
+})
 
 // Triggers Nav-bar back ground once window Y coordinate exceeds the height of header
 function activateHeader() {
@@ -63,7 +77,6 @@ window.addEventListener("scroll", (e) => {
   createObserver();
 });
 
-
 // Swiper is initalized
 Swiper.use([Navigation, Pagination, Scrollbar]);
 
@@ -89,7 +102,6 @@ window.addEventListener('load', function() {
   const tabPane = document.querySelector('.location-content .tab-content .tab-pane');
   const active = document.querySelector('.nav-items .activity');
   const paneActive = document.querySelector('.location-content .tab-content .tab-pane.active .swiper-container .swiper-wrapper');
-
 
   caption.classList.add('active');
   caption2.classList.add('active');
@@ -195,7 +207,7 @@ for (let i = 0; i < closeBtn.length; i++) {
       navLayer[4].classList.remove('active');
     }
   })
-  
+
 };
 
 // pushes nav-items into triggers array;

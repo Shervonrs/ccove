@@ -1,6 +1,16 @@
 .navigation-item:nth-child(5) .nav-submenu-wrap.active{
   @extend %navcontent;
   right: 0;
+  & .nav-submenu-container.active {
+    font-size: 0.7rem;
+    & .submenu-list {
+      font-size: 0.6rem;
+      & .submenu-item {
+        margin: 1% 0;
+        padding: 0.5rem;
+      }
+    }
+  }
   & .nav-submenu-container .submenu-list {
     @include flexbox($dir: column)
     & .submenu-item {
@@ -45,6 +55,9 @@
   background: none;
   border: none;
   text-align: left;
+  &.active{
+    margin: 2% 0%;
+  }
 }
 
 .navigation-item:nth-child(5) .nav-layer.active {

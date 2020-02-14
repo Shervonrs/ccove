@@ -50,6 +50,23 @@
 .navigation-item:nth-child(1) .nav-submenu-wrap.active {
   @extend %navcontent;
   left: 0;
+  & .nav-submenu-container.active {
+    .submenu-img {
+      position: relative;
+      & img {
+        width: 50%;
+      }
+      & .artist-impression {
+        position: absolute;
+        top: 100%;
+        left: 1%;
+      }
+    }
+    .submenu-text p {
+      margin-bottom: .5rem;
+      font-size: 0.4rem;
+    }
+  }
   & .submenu-img {
     margin-bottom: 4vh;
     margin-top: 7vh;

@@ -8,6 +8,7 @@
     font-size: 12px;
     display: grid;
     grid-template-rows: 1fr 1fr;
+    grid-gap: 1rem;
     text-align: center;
     @media(min-width: 768px) {
       grid-template-rows: none;
@@ -23,5 +24,8 @@
         }
       }
     }
+  }
+  & .icons a {
+    color: white;
   }
 }

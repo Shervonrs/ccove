@@ -1,6 +1,8 @@
 const path = require('path');
 const Dotenv = require('dotenv-webpack');
 const imagemin = require('imagemin');
+const webpack = require('webpack');
+
 
 module.exports = {
   entry: {
@@ -40,7 +42,7 @@ module.exports = {
                  plugins: [
                    require("imagemin-mozjpeg")({
                      progressive: true,
-                     quality: 30
+                     quality: 50
                    })
                  ]
                }
@@ -60,6 +62,11 @@ module.exports = {
     ],
   },
   plugins: [
-    new Dotenv()
-    ]
-  };
+    // new Dotenv({
+    //   path: './.env'
+    // })
+    new webpack.DefinePlugin({
+        'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development' ||'production')
+    }),
+  ]
+};

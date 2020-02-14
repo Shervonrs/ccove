@@ -1,4 +1,9 @@
 .navigation-item:nth-child(3) .nav-submenu-wrap.active{
+  & .nav-submenu-container.active{
+    & .submenu-item {
+      margin-bottom: 10%;
+    }
+  }
   @extend %navcontent;
   left: 0;
   background: $black;
