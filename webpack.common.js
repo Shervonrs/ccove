@@ -1,7 +1,8 @@
 const path = require('path');
 const Dotenv = require('dotenv-webpack');
 const imagemin = require('imagemin');
-const webpack = require('webpack');
+const dotenv = require("dotenv").config();
+
 
 
 module.exports = {
@@ -62,11 +63,6 @@ module.exports = {
     ],
   },
   plugins: [
-    // new Dotenv({
-    //   path: './.env'
-    // })
-    new webpack.DefinePlugin({
-        'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development' ||'production')
-    }),
+    new Dotenv()
   ]
 };
