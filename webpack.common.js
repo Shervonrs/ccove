@@ -29,11 +29,11 @@ module.exports = {
          test: /\.(png|svg|jpe?g|gif)$/,
          use:  [
              {
-               loader: "url-loader",
+               loader: "file-loader",
                options: {
                  name: "[name].[hash].[ext]",
-                 outputPath: "img",
-                 esModule: false
+                 outputPath: "img"
+                 // esModule: false
                }
              },
              {
@@ -42,7 +42,7 @@ module.exports = {
                  plugins: [
                    require("imagemin-mozjpeg")({
                      progressive: true,
-                     quality: 50
+                     quality: 75
                    })
                  ]
                }
