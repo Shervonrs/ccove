@@ -8,7 +8,6 @@ const dotenv = require("dotenv").config();
 module.exports = {
   entry: {
     main:"./src/index.js",
-    vendor: './src/vendor.js'
   },
   externals: {
     jquery: 'jQuery'
